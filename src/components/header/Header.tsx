@@ -59,7 +59,7 @@ export function Header() {
   const openCompany = () => { if (closeTimer.current) clearTimeout(closeTimer.current); openTimer.current = setTimeout(() => setCompanyOpen(true), 120); };
   const keepCompanyOpen = () => { if (closeTimer.current) clearTimeout(closeTimer.current); setCompanyOpen(true); };
   const delayedClose = () => { if (openTimer.current) clearTimeout(openTimer.current); closeTimer.current = setTimeout(() => setCompanyOpen(false), 120); };
-  const toggleCompany = () => { if (openTimer.current) clearTimeout(openTimer.current); setCompanyOpen((open) => !open); };
+  const showCompany = () => { if (openTimer.current) clearTimeout(openTimer.current); if (closeTimer.current) clearTimeout(closeTimer.current); setCompanyOpen(true); };
 
   useEffect(() => {
     const escape = (event: KeyboardEvent) => { if (event.key === "Escape") { setCompanyOpen(false); setMobileOpen(false); } };
@@ -75,7 +75,7 @@ export function Header() {
           <Wordmark />
           <nav className="hidden items-center gap-9 text-[16px] font-medium lg:flex" aria-label="Main navigation">
             {['Platform', 'Solutions', 'Resources'].map((item) => <a key={item} href={`#${item.toLowerCase()}`} className="transition-colors hover:text-accent">{item}</a>)}
-            <button onMouseEnter={openCompany} onMouseLeave={delayedClose} onFocus={keepCompanyOpen} onClick={toggleCompany} aria-expanded={companyOpen} aria-haspopup="dialog" className="flex items-center gap-1 transition-colors hover:text-accent">Company <ChevronDown className={`size-3.5 transition-transform ${companyOpen ? "rotate-180" : ""}`} /></button>
+            <button onMouseEnter={openCompany} onMouseLeave={delayedClose} onFocus={keepCompanyOpen} onClick={showCompany} aria-expanded={companyOpen} aria-haspopup="dialog" className="flex items-center gap-1 transition-colors hover:text-accent">Company <ChevronDown className={`size-3.5 transition-transform ${companyOpen ? "rotate-180" : ""}`} /></button>
             <a href="#pricing" className="transition-colors hover:text-accent">Pricing</a>
           </nav>
           <div className="hidden items-center justify-end gap-6 text-[16px] font-medium lg:flex">
