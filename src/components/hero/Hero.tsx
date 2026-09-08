@@ -10,6 +10,8 @@ const slides = [
     person: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=900&q=90",
     alt: "Smiling marketing professional",
     card: <>Optimize 2,000<br />web pages for<br />search, instantly</>,
+    metric: null,
+    metricLabel: null,
   },
   {
     id: "campaign",
@@ -38,12 +40,12 @@ function DecorativeShapes({ theme }: { theme: string }) {
 }
 
 function HeroScene({ index, reduced }: { index: number; reduced: boolean }) {
-  const slide = slides[index];
+  const slide = slides[index] ?? slides[0];
   return (
-    <motion.div key={slide.id} className={cn("scene", `scene-${slide.theme}`)} initial={reduced ? false : { opacity: 0 }} animate={{ opacity: 1 }} exit={reduced ? undefined : { opacity: 0 }} transition={{ duration: .45 }}>
+    <motion.div key={slide.id} className={cn("scene", `scene-${slide.theme}`)} initial={reduced ? false : { opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .45 }}>
       <motion.div className="hero-grid" initial={reduced ? false : { opacity: 0, scaleX: .88 }} animate={{ opacity: 1, scaleX: 1 }} transition={{ duration: .55 }} />
       <motion.div className="shapes" initial={reduced ? false : { opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: .5, delay: .08 }}><DecorativeShapes theme={slide.theme} /></motion.div>
-      <motion.img src={slide.person} alt={slide.alt} width="900" height="900" className="hero-person" initial={reduced ? false : { opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={reduced ? undefined : { opacity: 0, y: 20 }} transition={{ duration: .6, ease: [0.22, 1, 0.36, 1] }} />
+      <motion.img src={slide.person} alt={slide.alt} width="900" height="900" className="hero-person" initial={reduced ? false : { opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }} transition={{ duration: .6, ease: [0.22, 1, 0.36, 1] }} />
       <motion.div className="message-card" initial={reduced ? false : { opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: .45, delay: .12 }}>
         <span className="info-mark">i</span><p>{slide.card}</p>
       </motion.div>
