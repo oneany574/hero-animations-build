@@ -1,14 +1,16 @@
-# Welcome to your Lovable project
+# Hero Animations Build
+
+Build the requested pixel-accurate Jasper.ai-inspired header, Company mega menu, and animated hero only. Use the attached specification and screenshots as the primary visual reference. Use the three user-provided Unsplash avatar URLs in the animated hero slides. Build the interface properly with responsive React components and animation; do not embed Jasper or use screenshots as page backgrounds.
 
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/a3f3f248-30b8-4880-aba5-d70a4be10b30).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +22,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
